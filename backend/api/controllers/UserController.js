@@ -28,7 +28,7 @@ class UserController {
       updateUser,
       res
     );
-    return updateUser;
+    return updatedUser;
   }
 
   static async deleteUserController(req, res) {
