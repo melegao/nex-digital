@@ -15,11 +15,11 @@ class ProductController {
   static async updateProductController(req, res) {
     const { id } = req.params;
     const product = req.body;
-
     const updatedProduct = await ProductService.updateProductService(
       product,
       id,
-      res
+      res,
+      req
     );
     return updatedProduct;
   }
