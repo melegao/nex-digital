@@ -8,8 +8,8 @@ class ProductOwnerMiddleware {
       where: { id: Number(id) },
     });
 
-    if(!product){
-        return res.status(400).json({ message: "Product not found!" });
+    if (!product) {
+      return res.status(400).json({ message: "Product not found!" });
     }
 
     const userId = req.user.id;
