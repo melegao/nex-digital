@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const ProductController = require("../controllers/ProductController");
 const AuthTokenMiddleware = require("../middlewares/AuthTokenMiddleware");
+const ProductOwnerMiddleware = require("../middlewares/ProductOwnerMiddleware")
 
 const router = Router();
 
@@ -17,11 +18,13 @@ router.get(
 router.patch(
   "/product/:id",
   AuthTokenMiddleware.authToken,
+  ProductOwnerMiddleware.productOwner,
   ProductController.updateProductController
 );
 router.delete(
   "/product/:id",
   AuthTokenMiddleware.authToken,
+  ProductOwnerMiddleware.productOwner,
   ProductController.deleteProductController
 );
 
