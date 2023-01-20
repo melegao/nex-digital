@@ -19,7 +19,7 @@ class ProductService {
     }
   }
 
-  static async updateProductService(product, id, res) {
+  static async updateProductService(product, id, res, req) {
     try {
       const productExists = await database.Products.findOne({
         where: { id: Number(id) },
