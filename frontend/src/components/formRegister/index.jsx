@@ -9,8 +9,7 @@ import { ContainerFormRegister } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 function FormRegister() {
-
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const formSchema = yup.object().shape({
     name: yup
@@ -36,30 +35,31 @@ function FormRegister() {
 
   const onSubmit = (data) => {
     const newData = {
-        name: data.name,
-        email: data.email,
-        password: data.password
-    }
-    
-    api.post("/users", newData)
-        .then((res) => handleSuccess(res))
-        .catch((err) => handleError(err.response))
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    };
+
+    api
+      .post("/users", newData)
+      .then((res) => handleSuccess(res))
+      .catch((err) => handleError(err.response));
   };
 
   const handleSuccess = () => {
-    toast.success("Usuário registrado com sucesso")
+    toast.success("Usuário registrado com sucesso");
     setTimeout(() => {
-        navigate("/")
-    }, 1000)
-  }
+      navigate("/");
+    }, 1000);
+  };
 
   const handleError = (data) => {
-    if (data.data.message === "User already registered!"){
-        toast.error("Usuário já cadastrado!")
+    if (data.data.message === "User already registered!") {
+      toast.error("Usuário já cadastrado!");
     } else {
-        toast.error("Tente novamente mais tarde")
+      toast.error("Tente novamente mais tarde");
     }
-  }
+  };
 
   return (
     <ContainerFormRegister onSubmit={handleSubmit(onSubmit)}>

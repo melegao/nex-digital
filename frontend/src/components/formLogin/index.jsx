@@ -44,7 +44,6 @@ function FormLogin() {
 
   return (
     <FormLoginContainer onSubmit={handleSubmit(onSubmit)}>
-      
       <InputBase
         type="text"
         placeholder="Digite seu e-mail"
