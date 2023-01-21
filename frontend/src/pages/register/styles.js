@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomeContainer = styled.div`
+export const RegisterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,14 +9,12 @@ export const HomeContainer = styled.div`
   height: 100vh;
   background-color: var(--grey10);
 
-  p {
+  .navitation-link {
     font-size: 0.9rem;
+    cursor: pointer;
 
-    span {
-      cursor: pointer;
-      :hover {
-        text-decoration: underline;
-      }
+    :hover {
+      text-decoration: underline;
     }
   }
 `;

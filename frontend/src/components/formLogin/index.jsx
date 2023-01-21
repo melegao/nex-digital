@@ -5,8 +5,12 @@ import api from "../../services/api";
 import { toast } from "react-toastify";
 import { FormLoginContainer } from "./styles";
 import { InputBase } from "../input";
+import { ButtonBase } from "../button";
+import { useNavigate } from "react-router-dom";
 
 function FormLogin() {
+  const navigate = useNavigate();
+
   const formSchema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
     password: yup.string().required("Campo obrigatório"),
@@ -19,23 +23,24 @@ function FormLogin() {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   const onSubmit = (data) => {
-    console.log(data);
-    // api
-    //   .post("/login", data)
-    //   .then((res) => handleSuccess(res.data))
-    //   .catch((err) => handleError());
+    api
+      .post("/login", data)
+      .then((res) => handleSuccess(res.data))
+      .catch((err) => handleError());
   };
 
   const handleSuccess = (data) => {
     localStorage.setItem("token", data.token);
     localStorage.setItem("usedId", data.userId);
     toast.success("Logado com sucesso");
+    setTimeout(() => {
+      navigate("/home");
+    }, 1000);
   };
 
   const handleError = () => {
     toast.error("Verifique e-mail ou senha");
   };
-
 
   return (
     <FormLoginContainer onSubmit={handleSubmit(onSubmit)}>
@@ -55,8 +60,9 @@ function FormLogin() {
         label="Senha"
         error={errors?.password?.message}
       />
-
-      <button type="submit">Login</button>
+      <ButtonBase type="submit" width="10rem">
+        Entrar
+      </ButtonBase>
     </FormLoginContainer>
   );
 }
