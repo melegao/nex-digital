@@ -25,7 +25,8 @@ export const ContainerInput = styled.div`
   }
 
   .label--error > label > p {
-    font-size: 0.875rem;
+    padding-top: 0.15rem;
+    font-size: 0.8rem;
     color: var(--alert1);
     font-style: italic;
   }
