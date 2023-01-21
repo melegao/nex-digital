@@ -7,7 +7,8 @@ export const RegisterContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   height: 100vh;
-  background-color: var(--grey10);
+  padding-top: 1rem;
+  background-color: var(--grey3);
 
   .navitation-link {
     font-size: 0.9rem;
