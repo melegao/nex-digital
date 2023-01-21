@@ -9,5 +9,16 @@ export const ButtonBase = ({
   width,
   ...rest
 }) => {
-  return <Button>{children}</Button>;
+  return (
+    <Button
+      width={width}
+      type={type}
+      onClick={onClick}
+      sizebutton={sizebutton}
+      colorbutton={colorbutton}
+      {...rest}
+    >
+      {children}
+    </Button>
+  );
 };
