@@ -44,6 +44,7 @@ function FormLogin() {
 
   return (
     <FormLoginContainer onSubmit={handleSubmit(onSubmit)}>
+      
       <InputBase
         type="text"
         placeholder="Digite seu e-mail"
@@ -55,7 +56,7 @@ function FormLogin() {
       <InputBase
         type="password"
         register={register}
-        placeholder="Digitar senha"
+        placeholder="Digite sua senha"
         name="password"
         label="Senha"
         error={errors?.password?.message}

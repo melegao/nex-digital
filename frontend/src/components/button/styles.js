@@ -11,7 +11,7 @@ export const Button = styled.button`
   color: var(--whiteFixed);
   background-color: var(--grey0);
   border: 1px solid var(--grey0);
-  padding: 0.3rem 0rem;
+  padding: 0.5rem 0rem;
 
   &:hover {
             background-color: var(--grey1);

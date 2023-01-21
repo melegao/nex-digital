@@ -7,7 +7,7 @@ export const HomeContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   height: 100vh;
-  background-color: var(--grey10);
+  background-color: var(--grey3);
 
   p {
     font-size: 0.9rem;
