@@ -13,9 +13,6 @@ export const RegisterContainer = styled.div`
   .navitation-link {
     font-size: 0.9rem;
     cursor: pointer;
-
-    :hover {
-      text-decoration: underline;
-    }
+    text-decoration: underline;
   }
 `;

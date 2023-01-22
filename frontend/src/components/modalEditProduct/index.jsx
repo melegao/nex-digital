@@ -1,19 +1,25 @@
-import { ButtonBase } from "../button";
-import { InputBase } from "../input";
-import { ModalNewProductContainer } from "./styles";
+import { useContext } from "react";
+import { ProductContext } from "../../context/productContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import api from "../../services/api";
+import { ButtonBase } from "../button";
+import { InputBase } from "../input";
+import { ModalEditContainer } from "./styles";
 import { toast } from "react-toastify";
-import { useContext } from "react";
-import { ProductContext } from "../../context/productContext";
 
-function ModalNewProduct({ setModalOpen, modalOpen }) {
-  const { setOpenModal, openModal, updateProduct, setUpdateProducts } =
-    useContext(ProductContext);
-  const userId = localStorage.getItem("usedId");
+function ModalEditProduct() {
+  const {
+    productTarget,
+    setProductTarget,
+    setOpenModal,
+    openModal,
+    setUpdateProducts,
+    updateProduct,
+  } = useContext(ProductContext);
   const userToken = localStorage.getItem("token");
+
   const formSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
     description: yup.string().required("Descrição obrigatória"),
@@ -36,11 +42,10 @@ function ModalNewProduct({ setModalOpen, modalOpen }) {
       name: data.name,
       description: data.description,
       price: Number(data.price.replace(",", ".")),
-      ownerId: Number(userId),
     };
 
     api
-      .post("product", newData, {
+      .patch(`product/${productTarget.id}`, newData, {
         headers: { Authorization: `Bearer ${userToken}` },
       })
       .then((res) => handleSuccess())
@@ -48,44 +53,51 @@ function ModalNewProduct({ setModalOpen, modalOpen }) {
   };
 
   const handleSuccess = () => {
-    toast.success("Produto cadastrado");
-    setOpenModal({ ...openModal, modalAdd: false });
+    toast.success("Produto atualizado");
+    setOpenModal({ ...openModal, modalEdit: false });
     setUpdateProducts(!updateProduct);
+    setProductTarget({});
   };
 
   const handleFailed = () => {
     toast.error("Tente novamente mais tarde");
-    setOpenModal({ ...openModal, modalAdd: false });
+    setOpenModal({ ...openModal, modalEdit: false });
+    setProductTarget({});
   };
 
   return (
-    <ModalNewProductContainer>
-      <form className="modal--newProduct" onSubmit={handleSubmit(onSubmit)}>
-        <p onClick={() => setOpenModal({ ...openModal, modalAdd: false })}>X</p>
+    <ModalEditContainer>
+      <form className="modal--editProduct" onSubmit={handleSubmit(onSubmit)}>
+        <p onClick={() => setOpenModal({ ...openModal, modalEdit: false })}>
+          X
+        </p>
         <InputBase
-          placeholder="Nome do produto"
+          defaultValue={productTarget.name}
+          placeholder="Nome"
           name="name"
           register={register}
           error={errors?.name?.message}
         />
         <InputBase
-          placeholder="Descrição do produto"
+          defaultValue={productTarget.description}
+          placeholder="Descrição"
           name="description"
           register={register}
           error={errors?.description?.message}
         />
         <InputBase
-          placeholder="Preço do produto"
+          defaultValue={productTarget.price.replace(".", ",")}
+          placeholder="Preço"
           name="price"
           register={register}
           error={errors?.price?.message}
         />
         <ButtonBase width="13.5rem" type="submit">
-          Cadastrar Produto
+          Atualizar
         </ButtonBase>
       </form>
-    </ModalNewProductContainer>
+    </ModalEditContainer>
   );
 }
 
-export default ModalNewProduct;
+export default ModalEditProduct;

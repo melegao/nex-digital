@@ -95,7 +95,7 @@ function FormRegister() {
         register={register}
         error={errors?.passwordConfirmation?.message}
       />
-      <Button type="submit">Registrar</Button>
+      <Button type="submit">Cadastrar</Button>
     </ContainerFormRegister>
   );
 }

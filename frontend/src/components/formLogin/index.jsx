@@ -60,7 +60,7 @@ function FormLogin() {
         label="Senha"
         error={errors?.password?.message}
       />
-      <ButtonBase type="submit" width="10rem">
+      <ButtonBase type="submit">
         Entrar
       </ButtonBase>
     </FormLoginContainer>
