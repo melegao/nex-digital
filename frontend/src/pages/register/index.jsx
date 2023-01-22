@@ -14,7 +14,6 @@ function Register() {
       <p className="navitation-link" onClick={() => navigate("/")}>
         Voltar
       </p>
-      ,
     </RegisterContainer>
   );
 }

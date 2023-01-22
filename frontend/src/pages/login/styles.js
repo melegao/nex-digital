@@ -14,9 +14,7 @@ export const HomeContainer = styled.div`
 
     span {
       cursor: pointer;
-      :hover {
-        text-decoration: underline;
-      }
+      text-decoration: underline;
     }
   }
 `;
