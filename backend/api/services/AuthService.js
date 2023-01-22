@@ -27,7 +27,7 @@ class AuthService {
       }
     );
 
-    return res.status(200).json({token, userId: account.id});
+    return res.status(200).json({ token, userId: account.id });
   }
 }
 

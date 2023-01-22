@@ -7,8 +7,8 @@ require("dotenv").config();
 class AuthController {
   static async userAuthController(req, res) {
     const { email, password } = req.body;
-    const token = await AuthService.userAuthService(email, password, res)
-    return token
+    const token = await AuthService.userAuthService(email, password, res);
+    return token;
   }
 }
 
