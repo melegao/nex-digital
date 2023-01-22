@@ -1,24 +1,22 @@
-import React from 'react'
-import { useState } from 'react'
-import ModalNewProduct from '../modalNewProduct'
-import { NewProductContainer } from './styles'
+import React, { useContext } from "react";
+import { ProductContext } from "../../context/productContext";
+import ModalNewProduct from "../modalNewProduct";
+import { NewProductContainer } from "./styles";
 
 function NewProduct() {
-    const [modalOpen, setModalOpen] = useState(false)
-
-    const handleModalOpen = () =>{
-        setModalOpen(!modalOpen)
-    }
-
+  const { openModal, setOpenModal } = useContext(ProductContext);
+  
 
   return (
     <>
-    <NewProductContainer onClick={() => handleModalOpen()}>
+      <NewProductContainer onClick={() => setOpenModal({ ...openModal, modalAdd: true })}>
         Cadastrar
-    </NewProductContainer>
-    {modalOpen && <ModalNewProduct modalOpen={modalOpen} setModalOpen={setModalOpen}/>}
+      </NewProductContainer>
+      {openModal.modalAdd && (
+        <ModalNewProduct />
+      )}
     </>
-  )
+  );
 }
 
-export default NewProduct
+export default NewProduct;

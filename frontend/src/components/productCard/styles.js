@@ -62,6 +62,7 @@ export const ProductCardContainer = styled.div`
     .icon {
       font-size: 0.8rem;
       color: var(--grey1);
+      cursor: pointer;
     }
   }
 
@@ -95,6 +96,7 @@ export const ProductCardContainer = styled.div`
     .icon {
       font-size: 0.8rem;
       color: var(--grey1);
+      cursor: pointer;
     }
   }
 `;
