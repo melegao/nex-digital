@@ -20,7 +20,7 @@ function Header() {
     <HeaderContainer>
       <div>
         <img src={nexLogoNew} alt="Nex Digital" />
-        <ButtonBase onClick={() => handleLogout()} width="2.4rem">
+        <ButtonBase onClick={() => handleLogout()} width="3rem">
           Sair
         </ButtonBase>
       </div>

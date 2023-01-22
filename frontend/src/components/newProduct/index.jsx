@@ -5,16 +5,15 @@ import { NewProductContainer } from "./styles";
 
 function NewProduct() {
   const { openModal, setOpenModal } = useContext(ProductContext);
-  
 
   return (
     <>
-      <NewProductContainer onClick={() => setOpenModal({ ...openModal, modalAdd: true })}>
+      <NewProductContainer
+        onClick={() => setOpenModal({ ...openModal, modalAdd: true })}
+      >
         Cadastrar
       </NewProductContainer>
-      {openModal.modalAdd && (
-        <ModalNewProduct />
-      )}
+      {openModal.modalAdd && <ModalNewProduct />}
     </>
   );
 }

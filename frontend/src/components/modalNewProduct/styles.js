@@ -9,7 +9,7 @@ export const ModalNewProductContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   .modal--newProduct {
     background-color: var(--grey3);
     display: flex;
@@ -20,9 +20,9 @@ export const ModalNewProductContainer = styled.div`
     gap: 1rem;
     border-radius: 1rem;
 
-    p{
-        align-self: flex-end;
-        cursor: pointer;
+    p {
+      align-self: flex-end;
+      cursor: pointer;
     }
   }
 `;

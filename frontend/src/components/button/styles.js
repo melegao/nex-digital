@@ -14,7 +14,7 @@ export const Button = styled.button`
   padding: 0.5rem 0rem;
 
   &:hover {
-            background-color: var(--grey1);
-            border: 1px solid var(--grey1);
-          }
+    background-color: var(--grey1);
+    border: 1px solid var(--grey1);
+  }
 `;

@@ -60,9 +60,7 @@ function FormLogin() {
         label="Senha"
         error={errors?.password?.message}
       />
-      <ButtonBase type="submit">
-        Entrar
-      </ButtonBase>
+      <ButtonBase type="submit">Entrar</ButtonBase>
     </FormLoginContainer>
   );
 }

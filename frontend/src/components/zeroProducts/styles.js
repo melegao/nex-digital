@@ -9,7 +9,7 @@ export const ZeroProductsContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
 
-  h2{
+  h2 {
     font-size: 1.3rem;
   }
 

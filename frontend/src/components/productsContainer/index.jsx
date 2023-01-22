@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { ProductContext } from "../../context/productContext";
 import api from "../../services/api";
 import ProductCard from "../productCard";
@@ -17,7 +18,7 @@ function ProductsContainer() {
         headers: { Authorization: `Bearer ${userToken}` },
       })
       .then((res) => setProducts(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error("Tente novamente mais tarde"));
   }, [updateProduct]);
 
   return (

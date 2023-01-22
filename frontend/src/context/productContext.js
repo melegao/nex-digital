@@ -12,13 +12,16 @@ export const ProductProvider = ({ children }) => {
   const [productTarget, setProductTarget] = useState({});
   const [updateProduct, setUpdateProducts] = useState(false);
 
-//   const updateApi = () => {
-//     setUpdateProducts(!updateProduct);
-//   };
-
   return (
     <ProductContext.Provider
-      value={{ openModal, setOpenModal, productTarget, setProductTarget, updateProduct, setUpdateProducts }}
+      value={{
+        openModal,
+        setOpenModal,
+        productTarget,
+        setProductTarget,
+        updateProduct,
+        setUpdateProducts,
+      }}
     >
       {children}
     </ProductContext.Provider>

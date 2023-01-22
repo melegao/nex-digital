@@ -11,6 +11,5 @@ export const ContainerFormRegister = styled.form`
     flex-direction: column;
     gap: 1rem;
     width: 17rem;
-    
   }
 `;
