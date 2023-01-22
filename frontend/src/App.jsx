@@ -2,13 +2,16 @@ import { ToastContainer } from "react-toastify";
 import Ways from "./routes/routes";
 import GlobalStyle from "./styles/global";
 import "react-toastify/dist/ReactToastify.css";
+import { ProductProvider } from "./context/productContext";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Ways />
-      <ToastContainer />
+      <ProductProvider>
+        <GlobalStyle />
+        <Ways />
+        <ToastContainer />
+      </ProductProvider>
     </>
   );
 }
